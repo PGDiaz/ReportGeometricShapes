@@ -64,6 +64,10 @@
       <Project>{b21a8f24-c7e0-4e69-b1d7-b424237dc216}</Project>
       <Name>CodingChallenge.Data</Name>
     </ProjectReference>
+    <ProjectReference Include="..\Geometry\Geometry.csproj">
+      <Project>{80F871E6-25DC-46A0-81C5-F8D72182A8BD}</Project>
+      <Name>Geometry</Name>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(VSToolsPath)\TeamTest\Microsoft.TestTools.targets" Condition="Exists('$(VSToolsPath)\TeamTest\Microsoft.TestTools.targets')" />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
