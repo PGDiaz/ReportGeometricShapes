@@ -2,7 +2,6 @@
 {
     public interface IGeometricShape
     {
-        int Tipo();
         decimal CalculateArea();
         decimal CalculatePerimeter();
     }

@@ -22,10 +22,5 @@ namespace Geometry.Shapes
         {
             return (decimal)Math.PI * _diameter;
         }
-
-        public int Tipo()
-        {
-            return 3;
-        }
     }
 }

@@ -20,10 +20,5 @@ namespace Geometry.Shapes
         {
             return _side * 4;
         }
-
-        public int Tipo()
-        {
-            return 1;
-        }
     }
 }
