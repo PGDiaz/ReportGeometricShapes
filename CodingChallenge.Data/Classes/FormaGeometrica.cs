@@ -2,8 +2,8 @@
 using System.Linq;
 using System.Text;
 
+using Business.Contracts;
 using Business.Dtos;
-using Business.Services;
 using Geometry.Contracts;
 
 namespace CodingChallenge.Data.Classes
@@ -26,44 +26,56 @@ namespace CodingChallenge.Data.Classes
 
         #endregion
 
-        public static string Imprimir(IList<IGeometricShape> shapes, int language)
+        readonly IGeometricShapesClassifier _classifier;
+
+        public FormaGeometrica(IGeometricShapesClassifier classifier)
+        {
+            _classifier = classifier;
+        }
+
+        public string Imprimir(IList<IGeometricShape> shapes, int language)
         {
             var sb = new StringBuilder();
 
             if (!shapes.Any())
             {
                 if (language == Castellano)
+                {
                     sb.Append("<h1>Lista vacía de formas!</h1>");
+                }
                 else
+                {
                     sb.Append("<h1>Empty list of shapes!</h1>");
+                }
+
+                return sb.ToString();
+            }
+
+            if (language == Castellano)
+            {
+                sb.Append("<h1>Reporte de Formas</h1>");
             }
             else
             {
-                if (language == Castellano)
-                    sb.Append("<h1>Reporte de Formas</h1>");
-                else
-                    // default es inglés
-                    sb.Append("<h1>Shapes report</h1>");
-
-                var classifier = new ShapeClassifiercs();
-
-                var classifications = classifier.Classify(shapes);
-
-                foreach (var classification in classifications)
-                {
-                    sb.Append(ObtenerLinea(classification, language));
-                }
-
-                sb.Append("TOTAL:<br/>");
-
-                sb.Append(classifications.Sum(c => c.Quantity) + " " +
-                    (language == Castellano ? "formas" : "shapes") + " ");
-
-                sb.Append((language == Castellano ? "Perimetro " : "Perimeter ") +
-                    classifications.Sum(c => c.TotalPerimeter).ToString("#.##") + " ");
-
-                sb.Append("Area " + (classifications.Sum(c => c.TotalArea)).ToString("#.##"));
+                sb.Append("<h1>Shapes report</h1>");
             }
+
+            var classifications = _classifier.Classify(shapes);
+
+            foreach (var classification in classifications)
+            {
+                sb.Append(ObtenerLinea(classification, language));
+            }
+
+            sb.Append("TOTAL:<br/>");
+
+            sb.Append(classifications.Sum(c => c.Quantity) + " " +
+                (language == Castellano ? "formas" : "shapes") + " ");
+
+            sb.Append((language == Castellano ? "Perimetro " : "Perimeter ") +
+                classifications.Sum(c => c.TotalPerimeter).ToString("#.##") + " ");
+
+            sb.Append("Area " + (classifications.Sum(c => c.TotalArea)).ToString("#.##"));
 
             return sb.ToString();
         }

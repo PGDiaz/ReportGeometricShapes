@@ -2,6 +2,7 @@
 
 using NUnit.Framework;
 
+using Business.Services;
 using CodingChallenge.Data.Classes;
 using Geometry.Contracts;
 using Geometry.Shapes;
@@ -16,7 +17,11 @@ namespace CodingChallenge.Data.Tests
         {
             var shapes = new List<IGeometricShape>();
 
-            var result = FormaGeometrica.Imprimir(shapes, 1);
+            var firstDependency = new ShapeClassifier();
+
+            var service = new FormaGeometrica(firstDependency);
+
+            var result = service.Imprimir(shapes, 1);
 
             var expectedResult = "<h1>Lista vacía de formas!</h1>";
 
@@ -28,7 +33,11 @@ namespace CodingChallenge.Data.Tests
         {
             var shapes = new List<IGeometricShape>();
 
-            var result = FormaGeometrica.Imprimir(shapes, 2);
+            var firstDependency = new ShapeClassifier();
+
+            var service = new FormaGeometrica(firstDependency);
+
+            var result = service.Imprimir(shapes, 2);
 
             var expectedResult = "<h1>Empty list of shapes!</h1>";
 
@@ -43,7 +52,11 @@ namespace CodingChallenge.Data.Tests
                 new Square(5),
             };
 
-            var result = FormaGeometrica.Imprimir(shapes, FormaGeometrica.Castellano);
+            var firstDependency = new ShapeClassifier();
+
+            var service = new FormaGeometrica(firstDependency);
+
+            var result = service.Imprimir(shapes, FormaGeometrica.Castellano);
 
             var expectedResult = "<h1>Reporte de Formas</h1>1 Cuadrado | Area 25 | Perimetro 20 " +
                 "<br/>TOTAL:<br/>1 formas Perimetro 20 Area 25";
@@ -61,7 +74,11 @@ namespace CodingChallenge.Data.Tests
                 new Square(3),
             };
 
-            var result = FormaGeometrica.Imprimir(shapes, FormaGeometrica.Ingles);
+            var firstDependency = new ShapeClassifier();
+
+            var service = new FormaGeometrica(firstDependency);
+
+            var result = service.Imprimir(shapes, FormaGeometrica.Ingles);
 
             var expectedResult = "<h1>Shapes report</h1>3 Squares | Area 35 | Perimeter 36 " +
                 "<br/>TOTAL:<br/>3 shapes Perimeter 36 Area 35";
@@ -83,7 +100,11 @@ namespace CodingChallenge.Data.Tests
                 new EquilateralTriangle(4.2m),
             };
 
-            var result = FormaGeometrica.Imprimir(shapes, FormaGeometrica.Ingles);
+            var firstDependency = new ShapeClassifier();
+
+            var service = new FormaGeometrica(firstDependency);
+
+            var result = service.Imprimir(shapes, FormaGeometrica.Ingles);
 
             var expectedResult = "<h1>Shapes report</h1>2 Squares | Area 29 | Perimeter 28 " +
                 "<br/>2 Circles | Area 13,01 | Perimeter 18,06 " +
@@ -107,7 +128,11 @@ namespace CodingChallenge.Data.Tests
                 new EquilateralTriangle(4.2m)
             };
 
-            var result = FormaGeometrica.Imprimir(shapes, FormaGeometrica.Castellano);
+            var firstDependency = new ShapeClassifier();
+
+            var service = new FormaGeometrica(firstDependency);
+
+            var result = service.Imprimir(shapes, FormaGeometrica.Castellano);
 
             var expectedResult = "<h1>Reporte de Formas</h1>2 Cuadrados | Area 29 | Perimetro 28" +
                 " <br/>2 Círculos | Area 13,01 | Perimetro 18,06 " +

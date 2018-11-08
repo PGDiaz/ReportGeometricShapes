@@ -60,6 +60,10 @@
     <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\Business\Business.csproj">
+      <Project>{216092FB-DF8D-4A50-964E-05EAA511B797}</Project>
+      <Name>Business</Name>
+    </ProjectReference>
     <ProjectReference Include="..\CodingChallenge.Data\CodingChallenge.Data.csproj">
       <Project>{b21a8f24-c7e0-4e69-b1d7-b424237dc216}</Project>
       <Name>CodingChallenge.Data</Name>

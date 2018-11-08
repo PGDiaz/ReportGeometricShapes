@@ -8,7 +8,7 @@ using Geometry.Shapes;
 
 namespace Business.Services
 {
-    public class ShapeClassifiercs : IGeometricShapesClassifier
+    public class ShapeClassifier : IGeometricShapesClassifier
     {
         public IEnumerable<ClassificationShape> Classify(IEnumerable<IGeometricShape> shapes)
         {
