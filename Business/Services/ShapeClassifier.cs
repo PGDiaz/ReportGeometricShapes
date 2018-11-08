@@ -19,7 +19,7 @@ namespace Business.Services
 
             var squares = new ClassificationShape
             {
-                Type = 1,
+                ShapeType = typeof(Square),
                 Quantity = 0,
                 TotalArea = decimal.Zero,
                 TotalPerimeter = decimal.Zero,
@@ -27,7 +27,7 @@ namespace Business.Services
 
             var equilateralTriangles = new ClassificationShape
             {
-                Type = 2,
+                ShapeType = typeof(EquilateralTriangle),
                 Quantity = 0,
                 TotalArea = decimal.Zero,
                 TotalPerimeter = decimal.Zero,
@@ -35,7 +35,7 @@ namespace Business.Services
 
             var circles = new ClassificationShape
             {
-                Type = 3,
+                ShapeType = typeof(Circle),
                 Quantity = 0,
                 TotalArea = decimal.Zero,
                 TotalPerimeter = decimal.Zero,

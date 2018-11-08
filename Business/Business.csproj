@@ -41,9 +41,11 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Contracts\IGeometricShapesClassifier.cs" />
+    <Compile Include="Contracts\IGeometricShapesFormatter.cs" />
     <Compile Include="Dtos\ClassificationShape.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Services\ShapeClassifier.cs" />
+    <Compile Include="Services\ShapesFormatter.cs" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\Geometry\Geometry.csproj">

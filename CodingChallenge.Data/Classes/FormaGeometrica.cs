@@ -3,22 +3,12 @@ using System.Linq;
 using System.Text;
 
 using Business.Contracts;
-using Business.Dtos;
 using Geometry.Contracts;
 
 namespace CodingChallenge.Data.Classes
 {
     public class FormaGeometrica
     {
-        #region Formas
-
-        public const int Cuadrado = 1;
-        public const int TrianguloEquilatero = 2;
-        public const int Circulo = 3;
-        public const int Trapecio = 4;
-
-        #endregion
-
         #region Idiomas
 
         public const int Castellano = 1;
@@ -27,10 +17,14 @@ namespace CodingChallenge.Data.Classes
         #endregion
 
         readonly IGeometricShapesClassifier _classifier;
+        readonly IClassificationShapesFormatter _formatter;
 
-        public FormaGeometrica(IGeometricShapesClassifier classifier)
+        public FormaGeometrica(
+            IGeometricShapesClassifier classifier,
+            IClassificationShapesFormatter formatter)
         {
             _classifier = classifier;
+            _formatter = formatter;
         }
 
         public string Imprimir(IList<IGeometricShape> shapes, int language)
@@ -62,55 +56,11 @@ namespace CodingChallenge.Data.Classes
 
             var classifications = _classifier.Classify(shapes);
 
-            foreach (var classification in classifications)
-            {
-                sb.Append(ObtenerLinea(classification, language));
-            }
+            var formats = _formatter.Format(classifications, language);
 
-            sb.Append("TOTAL:<br/>");
-
-            sb.Append(classifications.Sum(c => c.Quantity) + " " +
-                (language == Castellano ? "formas" : "shapes") + " ");
-
-            sb.Append((language == Castellano ? "Perimetro " : "Perimeter ") +
-                classifications.Sum(c => c.TotalPerimeter).ToString("#.##") + " ");
-
-            sb.Append("Area " + (classifications.Sum(c => c.TotalArea)).ToString("#.##"));
+            sb.Append(formats);
 
             return sb.ToString();
-        }
-
-        static string ObtenerLinea(ClassificationShape classification, int idioma)
-        {
-            if (classification.Quantity > 0)
-            {
-                if (idioma == Castellano)
-                {
-                    return $"{classification.Quantity} {TraducirForma(classification.Type, classification.Quantity, idioma)} | Area {classification.TotalArea:#.##} | Perimetro {classification.TotalPerimeter:#.##} <br/>";
-                }
-
-                return $"{classification.Quantity} {TraducirForma(classification.Type, classification.Quantity, idioma)} | Area {classification.TotalArea:#.##} | Perimeter {classification.TotalPerimeter:#.##} <br/>";
-            }
-
-            return string.Empty;
-        }
-
-        static string TraducirForma(int tipo, int cantidad, int idioma)
-        {
-            switch (tipo)
-            {
-                case Cuadrado:
-                    if (idioma == Castellano) return cantidad == 1 ? "Cuadrado" : "Cuadrados";
-                    else return cantidad == 1 ? "Square" : "Squares";
-                case Circulo:
-                    if (idioma == Castellano) return cantidad == 1 ? "Círculo" : "Círculos";
-                    else return cantidad == 1 ? "Circle" : "Circles";
-                case TrianguloEquilatero:
-                    if (idioma == Castellano) return cantidad == 1 ? "Triángulo" : "Triángulos";
-                    else return cantidad == 1 ? "Triangle" : "Triangles";
-            }
-
-            return string.Empty;
         }
     }
 }

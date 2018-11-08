@@ -18,8 +18,9 @@ namespace CodingChallenge.Data.Tests
             var shapes = new List<IGeometricShape>();
 
             var firstDependency = new ShapeClassifier();
+            var secondDependency = new ShapeFormatter();
 
-            var service = new FormaGeometrica(firstDependency);
+            var service = new FormaGeometrica(firstDependency, secondDependency);
 
             var result = service.Imprimir(shapes, 1);
 
@@ -34,8 +35,9 @@ namespace CodingChallenge.Data.Tests
             var shapes = new List<IGeometricShape>();
 
             var firstDependency = new ShapeClassifier();
+            var secondDependency = new ShapeFormatter();
 
-            var service = new FormaGeometrica(firstDependency);
+            var service = new FormaGeometrica(firstDependency, secondDependency);
 
             var result = service.Imprimir(shapes, 2);
 
@@ -53,8 +55,9 @@ namespace CodingChallenge.Data.Tests
             };
 
             var firstDependency = new ShapeClassifier();
+            var secondDependency = new ShapeFormatter();
 
-            var service = new FormaGeometrica(firstDependency);
+            var service = new FormaGeometrica(firstDependency, secondDependency);
 
             var result = service.Imprimir(shapes, FormaGeometrica.Castellano);
 
@@ -75,8 +78,9 @@ namespace CodingChallenge.Data.Tests
             };
 
             var firstDependency = new ShapeClassifier();
+            var secondDependency = new ShapeFormatter();
 
-            var service = new FormaGeometrica(firstDependency);
+            var service = new FormaGeometrica(firstDependency, secondDependency);
 
             var result = service.Imprimir(shapes, FormaGeometrica.Ingles);
 
@@ -101,8 +105,9 @@ namespace CodingChallenge.Data.Tests
             };
 
             var firstDependency = new ShapeClassifier();
+            var secondDependency = new ShapeFormatter();
 
-            var service = new FormaGeometrica(firstDependency);
+            var service = new FormaGeometrica(firstDependency, secondDependency);
 
             var result = service.Imprimir(shapes, FormaGeometrica.Ingles);
 
@@ -129,8 +134,9 @@ namespace CodingChallenge.Data.Tests
             };
 
             var firstDependency = new ShapeClassifier();
+            var secondDependency = new ShapeFormatter();
 
-            var service = new FormaGeometrica(firstDependency);
+            var service = new FormaGeometrica(firstDependency, secondDependency);
 
             var result = service.Imprimir(shapes, FormaGeometrica.Castellano);
 
