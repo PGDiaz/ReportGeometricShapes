@@ -4,5 +4,6 @@
     {
         Spanish,
         English,
+        French,
     }
 }

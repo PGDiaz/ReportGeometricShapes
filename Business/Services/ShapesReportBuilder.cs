@@ -1,4 +1,5 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 
 using Business.Contracts;
 using Geometry.Contracts;
@@ -22,8 +23,13 @@ namespace Business.Services
             _formatter = formatter;
         }
 
-        public string Build(IList<IGeometricShape> shapes, Language language)
+        public string Build(IEnumerable<IGeometricShape> shapes, Language language)
         {
+            if (shapes == null)
+            {
+                throw new ArgumentNullException("shapes", "The parameter must not be null");
+            }
+
             var template = _factory.GetTemplate(language);
 
             var classifiedShapes = _classifier.Classify(shapes);

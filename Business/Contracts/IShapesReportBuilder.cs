@@ -7,6 +7,6 @@ namespace Business.Contracts
 {
     public interface IShapesReportBuilder
     {
-        string Build(IList<IGeometricShape> shapes, Language language);
+        string Build(IEnumerable<IGeometricShape> shapes, Language language);
     }
 }

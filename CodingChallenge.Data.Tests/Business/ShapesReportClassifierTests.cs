@@ -34,5 +34,17 @@ namespace CodingChallenge.Data.Tests.Business
 
             Assert.AreEqual(expectedResult, result.Count());
         }
+
+        [TestCase]
+        public void EmptyClassificationShapesTest()
+        {
+            var shapes = Enumerable.Empty<IGeometricShape>();
+
+            var service = new ShapesReportClassifier();
+
+            var result = service.Classify(shapes);
+
+            CollectionAssert.IsEmpty(result);
+        }
     }
 }

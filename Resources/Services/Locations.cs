@@ -10,11 +10,13 @@ namespace Resources.Services
     {
         readonly IDictionary<string, string> _resource;
         readonly IDictionary<string, string> _esResource;
+        readonly IDictionary<string, string> _frResource;
 
         public Locations()
         {
             _resource = InitializeResource();
             _esResource = InitializeEsResource();
+            _frResource = InitializeFrResource();
         }
 
         public string GetTranslation(string keyText, Language language)
@@ -30,6 +32,8 @@ namespace Resources.Services
                     return TryGetTranslation(_esResource, keyText);
                 case Language.English:
                     return TryGetTranslation(_resource, keyText);
+                case Language.French:
+                    return TryGetTranslation(_frResource, keyText);
                 default:
                     throw new ArgumentException("Must provide a valid language.", "language");
             }
@@ -78,6 +82,24 @@ namespace Resources.Services
                 { TranslationKey.LabelCircles, "Círculos" },
                 { TranslationKey.LabelTriangle, "Triángulo" },
                 { TranslationKey.LabelTriangles, "Triángulos" },
+            };
+        }
+
+        IDictionary<string, string> InitializeFrResource()
+        {
+            return new Dictionary<string, string>
+            {
+                { TranslationKey.EmptyShapes, "Liste vide de formes!" },
+                { TranslationKey.HeadReportShapes, "Rapport de formes" },
+                { TranslationKey.LabelArea, "Superficie" },
+                { TranslationKey.LabelPerimeter, "Périmètre" },
+                { TranslationKey.LabelShapes, "Formes"},
+                { TranslationKey.LabelSquare, "Carré" },
+                { TranslationKey.LabelSquares, "Des carrés" },
+                { TranslationKey.LabelCircle, "Cercle" },
+                { TranslationKey.LabelCircles, "Cercles" },
+                { TranslationKey.LabelTriangle, "Triangle" },
+                { TranslationKey.LabelTriangles, "Triangles" },
             };
         }
     }
