@@ -66,6 +66,8 @@ namespace Resources.Services
                 { TranslationKey.LabelTriangles, "Triangles" },
                 { TranslationKey.LabelTrapezoid, "Trapezoid" },
                 { TranslationKey.LabelTrapezoids, "Trapezoids" },
+                { TranslationKey.LabelRectangle, "Rectangle" },
+                { TranslationKey.LabelRectangles, "Rectangles" },
             };
         }
 
@@ -86,6 +88,8 @@ namespace Resources.Services
                 { TranslationKey.LabelTriangles, "Triángulos" },
                 { TranslationKey.LabelTrapezoid, "Trapecio" },
                 { TranslationKey.LabelTrapezoids, "Trapecios" },
+                { TranslationKey.LabelRectangle, "Rectángulo" },
+                { TranslationKey.LabelRectangles, "Rectángulos" },
             };
         }
 
@@ -106,6 +110,8 @@ namespace Resources.Services
                 { TranslationKey.LabelTriangles, "Triangles" },
                 { TranslationKey.LabelTrapezoid, "Trapèze" },
                 { TranslationKey.LabelTrapezoids, "Trapèzes" },
+                { TranslationKey.LabelRectangle, "Rectangle" },
+                { TranslationKey.LabelRectangles, "Rectangles" },
             };
         }
     }

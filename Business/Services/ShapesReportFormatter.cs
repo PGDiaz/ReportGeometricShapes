@@ -80,6 +80,10 @@ namespace Business.Services
                             return classifiedShape.Quantity == 1 ?
                                 _locations.GetTranslation(TranslationKey.LabelTrapezoid, language) :
                                 _locations.GetTranslation(TranslationKey.LabelTrapezoids, language);
+                        case ShapeType.Rectangle:
+                            return classifiedShape.Quantity == 1 ?
+                                _locations.GetTranslation(TranslationKey.LabelRectangle, language) :
+                                _locations.GetTranslation(TranslationKey.LabelRectangles, language);
                         default:
                             return string.Empty;
                     }

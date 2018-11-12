@@ -68,6 +68,7 @@
     <Compile Include="Business\ShapesReportFormatterTests.cs" />
     <Compile Include="DataTests.cs" />
     <Compile Include="Geometry\IsoscelesTrapezoidTest.cs" />
+    <Compile Include="Geometry\RectangleTests.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Resources\LocationsTests.cs" />
   </ItemGroup>

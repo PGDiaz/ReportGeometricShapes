@@ -6,5 +6,6 @@
         Circle,
         EquilateralTriangle,
         IsoscelesTrapezoid,
+        Rectangle,
     }
 }
