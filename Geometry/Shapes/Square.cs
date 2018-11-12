@@ -1,10 +1,11 @@
 ﻿using Geometry.Contracts;
+using Geometry.Values;
 
 namespace Geometry.Shapes
 {
     public class Square : IGeometricShape
     {
-        decimal _side;
+        readonly decimal _side;
 
         public Square(decimal side)
         {
@@ -19,6 +20,11 @@ namespace Geometry.Shapes
         public decimal CalculatePerimeter()
         {
             return _side * 4;
+        }
+
+        public ShapeType GetShapeType()
+        {
+            return ShapeType.Square;
         }
     }
 }

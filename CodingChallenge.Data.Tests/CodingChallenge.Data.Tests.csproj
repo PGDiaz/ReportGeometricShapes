@@ -53,6 +53,7 @@
     <Reference Include="System.Core" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Business\ShapesReportClassifierTests.cs" />
     <Compile Include="DataTests.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
@@ -71,6 +72,10 @@
     <ProjectReference Include="..\Geometry\Geometry.csproj">
       <Project>{80F871E6-25DC-46A0-81C5-F8D72182A8BD}</Project>
       <Name>Geometry</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Resources\Resources.csproj">
+      <Project>{D25FF5BF-BAED-476A-ADE8-5013DEB6BC55}</Project>
+      <Name>Resources</Name>
     </ProjectReference>
   </ItemGroup>
   <Import Project="$(VSToolsPath)\TeamTest\Microsoft.TestTools.targets" Condition="Exists('$(VSToolsPath)\TeamTest\Microsoft.TestTools.targets')" />

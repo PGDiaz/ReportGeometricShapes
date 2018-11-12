@@ -1,12 +1,13 @@
 ﻿using System;
 
 using Geometry.Contracts;
+using Geometry.Values;
 
 namespace Geometry.Shapes
 {
     public class EquilateralTriangle : IGeometricShape
     {
-        decimal _side;
+        readonly decimal _side;
 
         public EquilateralTriangle(decimal side)
         {
@@ -21,6 +22,11 @@ namespace Geometry.Shapes
         public decimal CalculatePerimeter()
         {
             return _side * 3;
+        }
+
+        public ShapeType GetShapeType()
+        {
+            return ShapeType.EquilateralTriangle;
         }
     }
 }

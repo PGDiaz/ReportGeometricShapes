@@ -11,6 +11,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Geometry", "Geometry\Geomet
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Business", "Business\Business.csproj", "{216092FB-DF8D-4A50-964E-05EAA511B797}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Resources", "Resources\Resources.csproj", "{D25FF5BF-BAED-476A-ADE8-5013DEB6BC55}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -33,6 +35,10 @@ Global
 		{216092FB-DF8D-4A50-964E-05EAA511B797}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{216092FB-DF8D-4A50-964E-05EAA511B797}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{216092FB-DF8D-4A50-964E-05EAA511B797}.Release|Any CPU.Build.0 = Release|Any CPU
+		{D25FF5BF-BAED-476A-ADE8-5013DEB6BC55}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{D25FF5BF-BAED-476A-ADE8-5013DEB6BC55}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{D25FF5BF-BAED-476A-ADE8-5013DEB6BC55}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{D25FF5BF-BAED-476A-ADE8-5013DEB6BC55}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

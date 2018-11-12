@@ -1,12 +1,13 @@
 ﻿using System;
 
 using Geometry.Contracts;
+using Geometry.Values;
 
 namespace Geometry.Shapes
 {
     public class Circle : IGeometricShape
     {
-        decimal _diameter;
+        readonly decimal _diameter;
 
         public Circle(decimal diameter)
         {
@@ -21,6 +22,11 @@ namespace Geometry.Shapes
         public decimal CalculatePerimeter()
         {
             return (decimal)Math.PI * _diameter;
+        }
+
+        public ShapeType GetShapeType()
+        {
+            return ShapeType.Circle;
         }
     }
 }
