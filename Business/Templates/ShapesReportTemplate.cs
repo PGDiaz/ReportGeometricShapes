@@ -3,6 +3,7 @@ using System.Text;
 
 using Business.Contracts;
 using Business.Dtos;
+using Resources.Values;
 
 namespace Business.Templates
 {
@@ -10,13 +11,13 @@ namespace Business.Templates
     {
         const string FORMAT_DECIMAL = "#.##";
 
-        readonly string _language;
+        readonly Language _language;
         readonly string _formatHead;
         readonly string _formatBody;
         readonly string _formatFoot;
 
         public ShapesReportTemplate(
-            string language,
+            Language language,
             string formatHead,
             string formatBody,
             string formatFoot)
@@ -27,7 +28,7 @@ namespace Business.Templates
             _formatFoot = formatFoot;
         }
 
-        public string GetLanguage()
+        public Language GetLanguage()
         {
             return _language;
         }

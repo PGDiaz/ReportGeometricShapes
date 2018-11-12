@@ -1,7 +1,9 @@
-﻿namespace Business.Contracts
+﻿using Resources.Values;
+
+namespace Business.Contracts
 {
     public interface IShapesReportTemplateFactory
     {
-        IShapesReportTemplate GetTemplate(string language);
+        IShapesReportTemplate GetTemplate(Language language);
     }
 }

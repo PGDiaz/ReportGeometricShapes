@@ -1,7 +1,9 @@
-﻿namespace Resources.Contracts
+﻿using Resources.Values;
+
+namespace Resources.Contracts
 {
     public interface ILocations
     {
-        string GetTranslation(string keyText, string language);
+        string GetTranslation(string keyText, Language language);
     }
 }

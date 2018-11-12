@@ -16,7 +16,7 @@ namespace Business.Services
             _locations = locations;
         }
 
-        public IShapesReportTemplate GetTemplate(string language)
+        public IShapesReportTemplate GetTemplate(Language language)
         {
             return new ShapesReportTemplate(
                 language,
@@ -25,7 +25,7 @@ namespace Business.Services
                 GetFormatFoot(language));
         }
 
-        string GetFormatBody(string language)
+        string GetFormatBody(Language language)
         {
             var labelArea = _locations.GetTranslation(TranslationKey.LabelArea, language);
 
@@ -35,7 +35,7 @@ namespace Business.Services
             return "{0} {1} | " + labelArea + " {2} | " + labelPerimeter + " {3} <br/>";
         }
 
-        string GetFormatFoot(string language)
+        string GetFormatFoot(Language language)
         {
             var labelShapes = _locations
                 .GetTranslation(TranslationKey.LabelShapes, language)

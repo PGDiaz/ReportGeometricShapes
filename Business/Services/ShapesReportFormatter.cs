@@ -56,7 +56,7 @@ namespace Business.Services
 
         IDictionary<ShapeType, string> GetShapesTranslations(
             IEnumerable<ClassificationShape> classifiedShapes,
-            string language)
+            Language language)
         {
             return classifiedShapes.ToDictionary(
                 classifiedShape => classifiedShape.ShapeType,

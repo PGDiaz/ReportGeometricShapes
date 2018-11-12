@@ -2,6 +2,7 @@
 
 using Business.Contracts;
 using Geometry.Contracts;
+using Resources.Values;
 
 namespace CodingChallenge.Data.Classes
 {
@@ -14,7 +15,7 @@ namespace CodingChallenge.Data.Classes
             _builder = builder;
         }
 
-        public string Imprimir(IList<IGeometricShape> shapes, string language)
+        public string Imprimir(IList<IGeometricShape> shapes, Language language)
         {
             return _builder.Build(shapes, language);
         }

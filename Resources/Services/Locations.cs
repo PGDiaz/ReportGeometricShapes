@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections.Generic;
 
 using Resources.Contracts;
 using Resources.Values;
@@ -7,129 +8,77 @@ namespace Resources.Services
 {
     public class Locations : ILocations
     {
-        public string GetTranslation(string keyText, string language)
+        readonly IDictionary<string, string> _resource;
+        readonly IDictionary<string, string> _esResource;
+
+        public Locations()
+        {
+            _resource = InitializeResource();
+            _esResource = InitializeEsResource();
+        }
+
+        public string GetTranslation(string keyText, Language language)
         {
             if (string.IsNullOrEmpty(keyText))
             {
                 throw new ArgumentNullException("keyText", "The parameter must not be null.");
             }
 
-            if (string.IsNullOrEmpty(language))
+            switch (language)
             {
-                throw new ArgumentNullException("language", "Must provide a language.");
+                case Language.Spanish:
+                    return TryGetTranslation(_esResource, keyText);
+                case Language.English:
+                    return TryGetTranslation(_resource, keyText);
+                default:
+                    throw new ArgumentException("Must provide a valid language.", "language");
+            }
+        }
+
+        string TryGetTranslation(IDictionary<string, string> resource, string keyText)
+        {
+            if (resource.ContainsKey(keyText))
+            {
+                return resource[keyText];
             }
 
-            if (keyText == TranslationKey.EmptyShapes)
+            return keyText;
+        }
+
+        IDictionary<string, string> InitializeResource()
+        {
+            return new Dictionary<string, string>
             {
-                if (language == Language.Spanish)
-                {
-                    return "Lista vacía de formas!";
-                }
+                { TranslationKey.EmptyShapes, "Empty list of shapes!" },
+                { TranslationKey.HeadReportShapes, "Shapes report" },
+                { TranslationKey.LabelArea, "Area" },
+                { TranslationKey.LabelPerimeter, "Perimeter" },
+                { TranslationKey.LabelShapes, "Shapes"},
+                { TranslationKey.LabelSquare, "Square" },
+                { TranslationKey.LabelSquares, "Squares" },
+                { TranslationKey.LabelCircle, "Circle" },
+                { TranslationKey.LabelCircles, "Circles" },
+                { TranslationKey.LabelTriangle, "Triangle" },
+                { TranslationKey.LabelTriangles, "Triangles" },
+            };
+        }
 
-                return "Empty list of shapes!";
-            }
-
-            if (keyText == TranslationKey.HeadReportShapes)
+        IDictionary<string, string> InitializeEsResource()
+        {
+            return new Dictionary<string, string>
             {
-                if (language == Language.Spanish)
-                {
-                    return "Reporte de Formas";
-                }
-
-                return "Shapes report";
-            }
-
-            if (keyText == TranslationKey.LabelArea)
-            {
-                if (language == Language.Spanish)
-                {
-                    return "Área";
-                }
-
-                return "Area";
-            }
-
-            if (keyText == TranslationKey.LabelPerimeter)
-            {
-                if (language == Language.Spanish)
-                {
-                    return "Perímetro";
-                }
-
-                return "Perimeter";
-            }
-
-            if (keyText == TranslationKey.LabelShapes)
-            {
-                if (language == Language.Spanish)
-                {
-                    return "Formas";
-                }
-
-                return "Shapes";
-            }
-
-            if (keyText == TranslationKey.LabelSquare)
-            {
-                if (language == Language.Spanish)
-                {
-                    return "Cuadrado";
-                }
-
-                return "Square";
-            }
-
-            if (keyText == TranslationKey.LabelSquares)
-            {
-                if (language == Language.Spanish)
-                {
-                    return "Cuadrados";
-                }
-
-                return "Squares";
-            }
-
-            if (keyText == TranslationKey.LabelCircle)
-            {
-                if (language == Language.Spanish)
-                {
-                    return "Círculo";
-                }
-
-                return "Circle";
-            }
-
-            if (keyText == TranslationKey.LabelCircles)
-            {
-                if (language == Language.Spanish)
-                {
-                    return "Círculos";
-                }
-
-                return "Circles";
-            }
-
-            if (keyText == TranslationKey.LabelTriangle)
-            {
-                if (language == Language.Spanish)
-                {
-                    return "Triángulo";
-                }
-
-                return "Triangle";
-            }
-
-            if (keyText == TranslationKey.LabelTriangles)
-            {
-                if (language == Language.Spanish)
-                {
-                    return "Triángulos";
-                }
-
-                return "Triangles";
-            }
-
-            return string.Empty;
+                { TranslationKey.EmptyShapes, "Lista vacía de formas!" },
+                { TranslationKey.HeadReportShapes, "Reporte de Formas" },
+                { TranslationKey.LabelArea, "Área" },
+                { TranslationKey.LabelPerimeter, "Perímetro" },
+                { TranslationKey.LabelShapes, "Formas"},
+                { TranslationKey.LabelSquare, "Cuadrado" },
+                { TranslationKey.LabelSquares, "Cuadrados" },
+                { TranslationKey.LabelCircle, "Círculo" },
+                { TranslationKey.LabelCircles, "Círculos" },
+                { TranslationKey.LabelTriangle, "Triángulo" },
+                { TranslationKey.LabelTriangles, "Triángulos" },
+            };
         }
     }
 }
