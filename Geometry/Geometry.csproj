@@ -39,6 +39,7 @@
     <Compile Include="Shapes\Circle.cs" />
     <Compile Include="Shapes\EquilateralTriangle.cs" />
     <Compile Include="Shapes\Square.cs" />
+    <Compile Include="Shapes\IsoscelesTrapezoid.cs" />
     <Compile Include="Values\ShapeType.cs" />
   </ItemGroup>
   <ItemGroup />

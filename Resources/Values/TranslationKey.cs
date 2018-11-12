@@ -13,5 +13,7 @@
         public static readonly string LabelCircles = "LabelCircles";
         public static readonly string LabelTriangle = "LabelTriangle";
         public static readonly string LabelTriangles = "LabelTriangles";
+        public static readonly string LabelTrapezoid = "LabelTrapezoid";
+        public static readonly string LabelTrapezoids = "LabelTrapezoids";
     }
 }

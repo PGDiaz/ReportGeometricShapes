@@ -4,6 +4,7 @@
     {
         Square,
         Circle,
-        EquilateralTriangle
+        EquilateralTriangle,
+        IsoscelesTrapezoid,
     }
 }

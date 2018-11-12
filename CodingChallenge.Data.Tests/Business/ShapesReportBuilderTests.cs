@@ -8,10 +8,10 @@ using NUnit.Framework;
 using Business.Contracts;
 using Business.Services;
 using Geometry.Contracts;
-using Resources.Values;
+using Geometry.Shapes;
 using Resources.Contracts;
 using Resources.Services;
-using Geometry.Shapes;
+using Resources.Values;
 
 namespace CodingChallenge.Data.Tests.Business
 {
@@ -51,7 +51,7 @@ namespace CodingChallenge.Data.Tests.Business
             {
                 new Square( 5),
                 new Circle(3),
-                new EquilateralTriangle(4),
+                new IsoscelesTrapezoid(2, 3, 5),
                 new Square(2),
             };
 
@@ -62,7 +62,7 @@ namespace CodingChallenge.Data.Tests.Business
             var expectedResult = "<h1>Rapport de formes</h1>" +
                 "2 Des carrés | Superficie 29 | Périmètre 28 <br/>" +
                 "1 Cercle | Superficie 7,07 | Périmètre 9,42 <br/>" +
-                "1 Triangle | Superficie 6,93 | Périmètre 12 <br/>" +
+                "1 Trapèze | Superficie 6,93 | Périmètre 12 <br/>" +
                 "TOTAL:<br/>4 formes Périmètre 49,42 Superficie 43";
 
             Assert.AreEqual(expectedResult, result);

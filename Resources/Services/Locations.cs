@@ -64,6 +64,8 @@ namespace Resources.Services
                 { TranslationKey.LabelCircles, "Circles" },
                 { TranslationKey.LabelTriangle, "Triangle" },
                 { TranslationKey.LabelTriangles, "Triangles" },
+                { TranslationKey.LabelTrapezoid, "Trapezoid" },
+                { TranslationKey.LabelTrapezoids, "Trapezoids" },
             };
         }
 
@@ -82,6 +84,8 @@ namespace Resources.Services
                 { TranslationKey.LabelCircles, "Círculos" },
                 { TranslationKey.LabelTriangle, "Triángulo" },
                 { TranslationKey.LabelTriangles, "Triángulos" },
+                { TranslationKey.LabelTrapezoid, "Trapecio" },
+                { TranslationKey.LabelTrapezoids, "Trapecios" },
             };
         }
 
@@ -100,6 +104,8 @@ namespace Resources.Services
                 { TranslationKey.LabelCircles, "Cercles" },
                 { TranslationKey.LabelTriangle, "Triangle" },
                 { TranslationKey.LabelTriangles, "Triangles" },
+                { TranslationKey.LabelTrapezoid, "Trapèze" },
+                { TranslationKey.LabelTrapezoids, "Trapèzes" },
             };
         }
     }

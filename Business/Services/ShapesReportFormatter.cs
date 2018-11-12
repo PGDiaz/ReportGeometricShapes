@@ -76,6 +76,10 @@ namespace Business.Services
                             return classifiedShape.Quantity == 1 ?
                                 _locations.GetTranslation(TranslationKey.LabelTriangle, language) :
                                 _locations.GetTranslation(TranslationKey.LabelTriangles, language);
+                        case ShapeType.IsoscelesTrapezoid:
+                            return classifiedShape.Quantity == 1 ?
+                                _locations.GetTranslation(TranslationKey.LabelTrapezoid, language) :
+                                _locations.GetTranslation(TranslationKey.LabelTrapezoids, language);
                         default:
                             return string.Empty;
                     }
